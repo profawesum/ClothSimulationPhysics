@@ -69,7 +69,10 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(ProjectDir)\Dependencies\assimp;$(ProjectDir)\Dependencies;$(ProjectDir)\Dependencies\freetype;$(ProjectDir)\Dependencies\fmod;$(ProjectDir)\Dependencies\glm;$(ProjectDir)\Dependencies\soil;$(ProjectDir)\Dependencies\glew;$(ProjectDir)\Dependencies\freeglut;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\Dependencies\assimp;$(ProjectDir)\Dependencies;$(ProjectDir)\Dependencies\freetype;$(ProjectDir)\Dependencies\fmod;$(ProjectDir)\Dependencies\glm;$(ProjectDir)\Dependencies\soil;$(ProjectDir)\Dependencies\glew;$(ProjectDir)\Dependencies\freeglut;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -85,6 +88,9 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>opengl32.lib;glew32.lib;freeglut.lib;SOIL.lib;fmod_vc.lib;freetype.lib;assimp-vc130-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
