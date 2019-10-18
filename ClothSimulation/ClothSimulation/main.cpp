@@ -157,7 +157,6 @@ private:
 	}
 
 public:
-
 	/* This is a important constructor for the entire system of particles and constraints*/
 	Cloth(float width, float height, int num_particles_width, int num_particles_height) : num_particles_width(num_particles_width), num_particles_height(num_particles_height)
 	{
@@ -395,7 +394,7 @@ void display(void)
 	cloth1.addForce(Vec3(0, -0.2, 0)*TIME_STEPSIZE2); // add gravity each frame, pointing down
 	cloth1.windForce(Vec3(0.5, 0, 0.2)*TIME_STEPSIZE2); // generate some wind each frame
 	cloth1.timeStep(); // calculate the particle positions of the next frame
-	cloth1.ballCollision(ball_pos, ball_radius); // resolve collision with the ball
+	//cloth1.ballCollision(ball_pos, ball_radius); // resolve collision with the ball
 
 
 
@@ -457,10 +456,10 @@ void arrow_keys(int a_keys, int x, int y)
 {
 	switch (a_keys) {
 	case GLUT_KEY_UP:
-		glutFullScreen();
+
 		break;
 	case GLUT_KEY_DOWN:
-		glutReshapeWindow(1280, 720);
+
 		break;
 	default:
 		break;

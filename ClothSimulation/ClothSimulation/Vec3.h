@@ -3,7 +3,9 @@
 #include <vector>
 #include <iostream>
 
-static class Vec3 // a minimal vector class of 3 floats and overloaded math operators
+
+//runs through maths operations for vectors
+static class Vec3
 {
 public:
 	float f[3];
