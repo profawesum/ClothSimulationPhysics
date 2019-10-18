@@ -1,36 +1,3 @@
-/*
-This source code is accompanying the Cloth Tutorial at the cg.alexandra.dk blog.
-
-You may use the code in any way you see fit. Please leave a comment on the blog
-or send me an email if the code or tutorial was somehow helpful.
-
-Everything needed is defined in this file, it is probably best read from the
-bottom and up, since dependancy is from the bottom and up
-
-A short overview of this file is;
-* includes
-* physics constant
-
-* class Vec3
-* class Particle (with position Vec3)
-* class Constraint (of two particles)
-* class Cloth (with particles and constraints)
-
-* Cloth object and ball (instance of Cloth Class)
-
-* OpenGL/Glut methods, including display() and main() (calling methods on Cloth object)
-
-Jesper Mosegaard, clothTutorial@jespermosegaard.dk
-
-Tested on: Windows Vista / Visual Studio 2005
-		   Linux (Red Hat) / GCC 4.1.2
-
-History:
-	2 Jun 2009 - Initial version
-	6 Jan 2010 - Typo corrected in call of glutInitDisplayMode to enable depth-buffer (Thanks Martijn The)
-
-*/
-
 
 #ifdef _WIN32
 #include <windows.h> 
@@ -41,80 +8,13 @@ History:
 #include <vector>
 #include <iostream>
 
+#include "Vec3.h"
+//#include "Constraints.h"
 
 /* Some physics constants */
 #define DAMPING 0.01 // how much to damp the cloth simulation each frame
 #define TIME_STEPSIZE2 0.5*0.5 // how large time step each particle takes each frame
-#define CONSTRAINT_ITERATIONS 15 // how many iterations of constraint satisfaction each frame (more is rigid, less is soft)
-
-
-class Vec3 // a minimal vector class of 3 floats and overloaded math operators
-{
-public:
-	float f[3];
-
-	Vec3(float x, float y, float z)
-	{
-		f[0] = x;
-		f[1] = y;
-		f[2] = z;
-	}
-
-	Vec3() {}
-
-	float length()
-	{
-		return sqrt(f[0] * f[0] + f[1] * f[1] + f[2] * f[2]);
-	}
-
-	Vec3 normalized()
-	{
-		float l = length();
-		return Vec3(f[0] / l, f[1] / l, f[2] / l);
-	}
-
-	void operator+= (const Vec3 &v)
-	{
-		f[0] += v.f[0];
-		f[1] += v.f[1];
-		f[2] += v.f[2];
-	}
-
-	Vec3 operator/ (const float &a)
-	{
-		return Vec3(f[0] / a, f[1] / a, f[2] / a);
-	}
-
-	Vec3 operator- (const Vec3 &v)
-	{
-		return Vec3(f[0] - v.f[0], f[1] - v.f[1], f[2] - v.f[2]);
-	}
-
-	Vec3 operator+ (const Vec3 &v)
-	{
-		return Vec3(f[0] + v.f[0], f[1] + v.f[1], f[2] + v.f[2]);
-	}
-
-	Vec3 operator* (const float &a)
-	{
-		return Vec3(f[0] * a, f[1] * a, f[2] * a);
-	}
-
-	Vec3 operator-()
-	{
-		return Vec3(-f[0], -f[1], -f[2]);
-	}
-
-	Vec3 cross(const Vec3 &v)
-	{
-		return Vec3(f[1] * v.f[2] - f[2] * v.f[1], f[2] * v.f[0] - f[0] * v.f[2], f[0] * v.f[1] - f[1] * v.f[0]);
-	}
-
-	float dot(const Vec3 &v)
-	{
-		return f[0] * v.f[0] + f[1] * v.f[1] + f[2] * v.f[2];
-	}
-};
+#define CONSTRAINT_ITERATIONS 25 // how many iterations of constraint satisfaction each frame (more is rigid, less is soft)
 
 /* The particle class represents a particle of mass that can move around in 3D space*/
 class Particle
