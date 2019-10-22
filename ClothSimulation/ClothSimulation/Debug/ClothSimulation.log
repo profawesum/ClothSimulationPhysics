@@ -1,0 +1,9 @@
+﻿  main.cpp
+d:\physics summative 3 - gitlink\clothsimulationphysics\clothsimulation\clothsimulation\vec3.h(72): warning C4091: 'static ': ignored on left of 'Vec3' when no variable is declared
+d:\physics summative 3 - gitlink\clothsimulationphysics\clothsimulation\clothsimulation\main.cpp(47): warning C4305: 'argument': truncation from 'double' to 'const float'
+d:\physics summative 3 - gitlink\clothsimulationphysics\clothsimulation\clothsimulation\main.cpp(373): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+d:\physics summative 3 - gitlink\clothsimulationphysics\clothsimulation\clothsimulation\main.cpp(374): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+d:\physics summative 3 - gitlink\clothsimulationphysics\clothsimulation\clothsimulation\main.cpp(392): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\physics summative 3 - gitlink\clothsimulationphysics\clothsimulation\clothsimulation\main.cpp(394): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\physics summative 3 - gitlink\clothsimulationphysics\clothsimulation\clothsimulation\main.cpp(395): warning C4305: 'argument': truncation from 'double' to 'float'
+  ClothSimulation.vcxproj -> D:\Physics Summative 3 - Gitlink\ClothSimulationPhysics\ClothSimulation\Debug\ClothSimulation.exe
