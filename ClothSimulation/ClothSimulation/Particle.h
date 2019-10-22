@@ -29,6 +29,8 @@ public:
 	Particle(vec3 pos) : pos(pos), oldPos(pos), acceleration(vec3(0, 0, 0)), mass(1), movable(true), accumulatedNormal(vec3(0, 0, 0)) {}
 	Particle() {}
 
+	vec3& getPos() { return pos; }
+
 	void addForce(vec3 f) { acceleration += f / mass; }
 
 	void resetAcceleration() { acceleration = vec3(0, 0, 0); }
